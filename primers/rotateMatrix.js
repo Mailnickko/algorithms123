@@ -1,5 +1,6 @@
 /*
-	Given a number of rounds n, return all the possible rock-paper-scissors play possibilities for that number of rounds.
+	Write a function that rotates a NxN matrix 90 degrees clockwise.
+A matrix, also called a 2-D array, is simply an array of arrays of values.
 */
 const rotateMatrix = matrix => {
   if (!Array.isArray(matrix) || matrix.every(row => !Array.isArray(row))) {

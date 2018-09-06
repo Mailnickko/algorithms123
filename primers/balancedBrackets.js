@@ -1,5 +1,5 @@
 /*
-	Given a number of rounds n, return all the possible rock-paper-scissors play possibilities for that number of rounds.
+	Given a string, return true if its arrangement of parenthesis (), curly-brackets {}, and square-brackets [] would be considered valid in code and mathematics (is balanced).
 */
 const balancedBrackets = str => {
   if (typeof str !== 'string') {
