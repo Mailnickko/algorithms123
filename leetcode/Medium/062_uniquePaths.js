@@ -27,7 +27,7 @@ Output: 28
 
 const uniquePaths = (m, n) => {
   // create an array of len m, filled with 1
-  const res = Arraym(m).fill(1);
+  const res = Array(m).fill(1);
 
   while (n--) {
     for (let i = 1; i < m; i++) {
