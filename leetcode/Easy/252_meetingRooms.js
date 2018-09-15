@@ -11,6 +11,13 @@ Input: [[7,10],[2,4]]
 Output: true
 */
 
+class Interval {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+}
+
 const canAttendMeetings = intervals => {
   if (intervals.length < 2) {
     return true;
