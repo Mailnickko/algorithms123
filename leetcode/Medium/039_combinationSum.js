@@ -32,21 +32,22 @@ const helper = (cand, target, combos = [], curr = [], start = 0) => {
     return combos.push([...curr]);
   }
 
-  // we overshot the target
-  if (target < 0) {
-    return;
-  }
-
   for (let i = start; i < cand.length; i++) {
-    curr.push(cand[i]);
-    helper(cand, target - cand[i], combos, curr, i);
-    curr.pop();
+    // we will overshoot the target otherwise
+    if (cand[i] <= target) {
+      curr.push(cand[i]);
+      helper(cand, target - cand[i], combos, curr, i);
+      curr.pop();
+    } else {
+      // no need to go through the rest
+      return;
+    }
   }
-  return combos;
 };
 
 const combinationSum = (candidates, target) => {
   const combos = [];
+  candidates.sort((a, b) => a - b);
   helper(candidates, target, combos, [], 0);
   return combos;
 };
