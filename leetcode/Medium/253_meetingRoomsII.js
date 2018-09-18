@@ -34,3 +34,5 @@ const minMeetingRooms = intervals => {
   });
   return rooms;
 };
+
+const timpo = [[0, 30], [5, 10], [15, 20]].map(time => new Interval(time[0], time[1]));
