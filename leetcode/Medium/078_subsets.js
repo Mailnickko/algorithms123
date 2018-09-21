@@ -45,3 +45,23 @@ const subsets2 = nums => {
 
   return res;
 };
+
+// another alternate, easier to understand
+
+const helper = (nums, res, start, curr = []) => {
+  if (start === 0) {
+    res.push([]);
+  }
+  for (let i = start; i < nums.length; i++) {
+    curr.push(nums[i]);
+    res.push([...curr]);
+    helper(num, res, i + 1, curr);
+    curr.pop();
+  }
+};
+
+const subsets3 = nums => {
+  const res = [];
+  helper(nums, res, 0, []);
+  return res;
+};
