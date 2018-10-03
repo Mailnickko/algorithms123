@@ -33,6 +33,19 @@ const selectionSort = arr => {
   return arr;
 };
 
+// Insertion Sort
+
+const insertionSort = arr => {
+  for (let i = 1; i < arr.length; i++) {
+    let val = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > val; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = val;
+  }
+  return arr;
+};
+
 // Quick Sort
 
 // Merge Sort
@@ -41,5 +54,6 @@ const selectionSort = arr => {
 
 module.exports = {
   bubbleSort,
-  selectionSort
+  selectionSort,
+  insertionSort
 };
