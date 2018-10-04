@@ -66,6 +66,35 @@ const quickSort = arr => {
   return [...quickSort(left), pivot, ...quickSort(right)];
 };
 
+const swap = (arr, i, j) => {
+  const temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+};
+
+const partition = (arr, start, end) => {
+  let pivot = arr[end];
+  let partitionIndex = start;
+
+  for (let i = start; i < end; i++) {
+    if (arr[i] <= pivot) {
+      swap(arr, i, partitionIndex);
+      partitionIndex++;
+    }
+  }
+  swap(arr, partitionIndex, end);
+  return partitionIndex;
+};
+
+const quickSortInPlace = (arr, left = 0, right = arr.length - 1) => {
+  if (left < right) {
+    let partitionIndex = partition(arr, left, right);
+    quickSortInPlace(arr, left, partitionIndex - 1);
+    quickSortInPlace(arr, partitionIndex + 1, right);
+  }
+  return arr;
+};
+
 // Merge Sort
 
 // Radix Sort
@@ -74,5 +103,6 @@ module.exports = {
   bubbleSort,
   selectionSort,
   insertionSort,
-  quickSort
+  quickSort,
+  quickSortInPlace
 };
