@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { bubbleSort, selectionSort, insertionSort } = require('../sorts.js');
+const { bubbleSort, selectionSort, insertionSort, quickSort } = require('../sorts.js');
 
 const unSorted = [-8, 46, 24, 33, 10, 2, 81, 50];
 
@@ -23,6 +23,14 @@ describe('Insertion sort', () => {
   it('should sort an array', () => {
     const arr = [...unSorted];
     const res = insertionSort(arr);
+    expect(res).eql([...unSorted].sort((a, b) => a - b));
+  });
+});
+
+describe('Quick sort', () => {
+  it('should sort an array', () => {
+    const arr = [...unSorted];
+    const res = quickSort(arr);
     expect(res).eql([...unSorted].sort((a, b) => a - b));
   });
 });
