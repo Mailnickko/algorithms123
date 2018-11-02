@@ -27,3 +27,28 @@ const isPalindrome = num => {
       .join('')
   );
 };
+
+// w/o string conversion
+
+const isPalindrome2 = num => {
+  if (num < 0) {
+    return false;
+  }
+
+  if (x < 10) {
+    return true;
+  }
+
+  if (num % 10 === 0) {
+    return false;
+  }
+
+  let reversed = 0;
+  while (reversed < num) {
+    reversed *= 10;
+    reversed += num % 10;
+    num = Math.trunc(num / 10);
+  }
+
+  return reversed === num || Math.trunc(reversed / 10) === num;
+};
