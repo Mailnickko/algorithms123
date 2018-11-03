@@ -21,6 +21,7 @@ Input: [1,3,5,6], 0
 Output: 0
 */
 
+// naive way
 const searchInsert = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     if (target <= nums[i]) {
@@ -28,4 +29,30 @@ const searchInsert = (nums, target) => {
     }
   }
   return nums.length;
+};
+
+// better way
+const searchInsertBinarySearch = (nums, target) => {
+  let start = 0;
+  let end = nums.length - 1;
+  let mid;
+
+  if (target < nums[0]) {
+    return 0;
+  }
+  if (target > nums[nums.length - 1]) {
+    return nums.length;
+  }
+
+  while (start <= end) {
+    mid = Math.floor((start + end) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      end = mid;
+    } else {
+      start = mid + 1;
+    }
+  }
+  return start;
 };
