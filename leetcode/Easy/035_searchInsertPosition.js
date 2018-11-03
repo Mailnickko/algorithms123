@@ -48,11 +48,11 @@ const searchInsertBinarySearch = (nums, target) => {
     mid = Math.floor((start + end) / 2);
     if (nums[mid] === target) {
       return mid;
-    } else if (nums[mid] < target) {
-      end = mid;
+    } else if (nums[mid] > target) {
+      end = mid - 1;
     } else {
       start = mid + 1;
     }
   }
-  return start;
+  return end + 1;
 };
